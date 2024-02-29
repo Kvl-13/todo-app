@@ -11,12 +11,23 @@ body {
 button {
   outline: none;
   border: 0;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  background: transparent;
+  height: 100%;
+}
+
+input {
+  width: 87%;
+  height: 100%;
 }
 
 input:focus {
   outline: none;
+}
+
+input::placeholder {
+  font-size: 17px;
 }
 
 .scrollable-area::-webkit-scrollbar {
@@ -33,17 +44,16 @@ input:focus {
   border-radius: 5px;
 }
 
-button {
+/* button {
   border: 0;
   background: transparent;
   height: 100%;
-}
+} */
 
 #inputd {
   width: 100%;
-  height: 50px;
+  height: 55px;
   margin-bottom: 5px;
-  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,21 +70,69 @@ button {
 }
 
 #input {
-  border: 1px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-right: 0;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  outline: 0;
 }
 
 #submit {
-  width: 16%;
+  width: 13%;
   height: 100%;
   margin-left: -1px;
   margin-top: 0;
   font-size: 15px;
   background: #141414;
+  
 }
+
+#card {
+  background-color: #f8f9fa;
+}
+
 
 i {
   font-size: 18px;
+}
+
+@media screen and (max-width: 425px) {
+  input::placeholder {
+    font-size: 15px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  i {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .card-items {
+    overflow-x: scroll;
+  }
+
+  .card-items::-webkit-scrollbar {
+    background-color: transparent;
+    height: 0px;
+  }
+
+  input::placeholder {
+    font-size: 12px;
+  }
+
+  p {
+    font-size: 12px;
+  }
+
+  input {
+    width: 83%;
+  }
+
+  #submit{
+    width: 17%;
+  }
 }
