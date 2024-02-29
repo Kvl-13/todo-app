@@ -1,56 +1,43 @@
 import React from 'react'
 
 export default function Items(props) {
-    const { temp, setTemp } = props;
+    const { todo, setTodo } = props;
 
     const handleDelete = (id) => {
-        const newTodo = temp.filter((temp, i) => temp.id !== id);
-        setTemp(newTodo);
-        localStorage.setItem("todo", JSON.stringify(newTodo));
+        setTodo((prev) => prev.filter((todo) => todo.id !== id));
     }
 
     const handleCheck = (id) => {
-        let newTemp = [];
-        for (let index = 0; index < temp.length; index++) {
-            if (temp[index].id == id) {
-                temp[index].completed = temp[index].completed === "1" ? "0" : "1";
-                newTemp.push(temp[index]);
-            }
-            else {
-                newTemp.push(temp[index]);
-            }
-        }
-        setTemp(newTemp);
-        localStorage.setItem("todo", JSON.stringify(newTemp));
+        setTodo(oldTodo =>
+            oldTodo.map(element =>
+                element.id === id ? { ...element, completed: !element.completed } : element
+            )
+        )
     }
 
     return (
         <>
             {
-                temp == "" ? "No todos" : temp.map((temp, index) => {
+                !todo.length ? <p style={{ fontSize: "17px" }}>No todos</p> : todo.map((todo) => {
+                    return <div key={todo.id} className={`card d-flex flex-row justify-content-between align-items-center p-3 m-2 card-items ${todo.completed === true ? "done" : ""}`} style={{ width: "100%" }}>
 
-                    return <div key={temp.id} className="card m-2" style={{ width: "100%" }}>
+                        <p className={`card-text p-0 m-0 ${todo.completed === true ? "cross" : ""}`} style={{ width: "78%" }}>
+                            {todo.todo}
+                        </p>
 
-                        <div className={`card-body d-flex justify-content-between align-items-center ${temp.completed == "1" ? "done" : ""}`}>
+                        {/* check button */}
+                        <button className='mx-4 pt-1' onClick={() => handleCheck(todo.id)} >
+                            <i className={`text-success fa-solid ${todo.completed === true ? "fa-xmark" : "fa-check"}`}></i>
+                        </button>
 
-                            <p className={`card-text p-0 m-0 ${temp.completed == "1" ? "cross" : ""}`} style={{ width: "78%" }}>
-                                {temp.todo}
-                            </p>
+                        {/* delete button */}
+                        <button onClick={() => handleDelete(todo.id)} >
+                            <i className="fa-solid fa-trash" style={{ color: "#FF0000" }} ></i>
+                        </button>
 
-
-                            {/* check button */}
-                            <button className='mx-4' onClick={() => handleCheck(temp.id)} >
-                                <i className={`text-success fa-solid ${temp.completed == "1" ? "fa-xmark" : "fa-check"}`}></i>
-                            </button>
-
-                            {/* delete button */}
-                            <button onClick={() => handleDelete(temp.id)} >
-                                <i className="fa-solid fa-trash" style={{ color: "#FF0000" }} ></i>
-                            </button>
-
-                        </div>
-
-                    </div >
+                    </div>
+                    //         return <div key={todo.id} className="card m-2" style={{ width: "100%" }}>
+                    // </div >
                 })
             }
         </>
