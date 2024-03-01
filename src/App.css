@@ -11,8 +11,7 @@ body {
 button {
   outline: none;
   border: 0;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border-radius: 0 7px 7px 0;
   background: transparent;
   height: 100%;
 }
@@ -29,26 +28,6 @@ input:focus {
 input::placeholder {
   font-size: 17px;
 }
-
-.scrollable-area::-webkit-scrollbar {
-  width: 1px;
-  background-color: transparent;
-}
-
-.cross {
-  text-decoration: line-through;
-}
-
-.done {
-  background: lightgreen;
-  border-radius: 5px;
-}
-
-/* button {
-  border: 0;
-  background: transparent;
-  height: 100%;
-} */
 
 #inputd {
   width: 100%;
@@ -72,8 +51,7 @@ input::placeholder {
 #input {
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-right: 0;
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
+  border-radius: 7px 0 0 7px;
   outline: 0;
 }
 
@@ -84,16 +62,26 @@ input::placeholder {
   margin-top: 0;
   font-size: 15px;
   background: #141414;
-  
 }
 
 #card {
   background-color: #f8f9fa;
 }
 
-
 i {
   font-size: 18px;
+}
+
+.scrollable-area::-webkit-scrollbar {
+  width: 1px;
+  background-color: transparent;
+}
+
+.done {
+  text-decoration: line-through;
+  background-color: lightgreen;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, text-decoration 5s ease-in-out;
 }
 
 @media screen and (max-width: 425px) {
@@ -102,11 +90,11 @@ i {
   }
 
   p {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   i {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 
@@ -125,14 +113,14 @@ i {
   }
 
   p {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   input {
     width: 83%;
   }
 
-  #submit{
+  #submit {
     width: 17%;
   }
 }

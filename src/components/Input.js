@@ -4,6 +4,7 @@ export default function Input(props) {
     const { handleClick } = props;
     const [data, setData] = React.useState("");
 
+    // To add new todo
     const handle = (e) => {
         e.preventDefault();
         handleClick(data);
@@ -11,7 +12,7 @@ export default function Input(props) {
     }
 
     return (
-        <div id='inputd' className='mb-2'>
+        <div id='inputd' className='mb-3'>
             <form action="#" id='form'>
                 <input className='ps-2' type="text" id='input'
                     value={data} onChange={(e) => setData(e.target.value)}

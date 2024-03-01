@@ -38,7 +38,7 @@ export default function Home() {
 
                     <Input handleClick={handleClick} />
 
-                    <div className='d-flex flex-column align-items-center scrollable-area' style={{ height: "25rem", overflowY: "scroll", overflowX: "hidden" }} >
+                    <div className='d-flex flex-column align-items-center scrollable-area pb-2' style={{ height: "28rem", overflowY: "scroll", overflowX: "hidden" }} >
                         <Items todo={todo} setTodo={setTodo} />
                     </div>
 
