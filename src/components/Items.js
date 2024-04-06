@@ -24,20 +24,21 @@ export default function Items(props) {
                     return <div key={todo.id} className={`card d-flex flex-row justify-content-between align-items-center p-3 m-2 card-items ${todo.completed === true ? "done" : ""}`} style={{ width: "100%" }}>
 
                         {/* to display the todo data */}
-                        <p className={`card-text p-0 m-0`} style={{ width: "78%" }}>
+                        <p className={`card-text pe-1 m-0`} style={{ width: "80%" }}>
                             {todo.todo}
                         </p>
 
-                        {/* check button */}
-                        <button className='mx-4 pt-1' onClick={() => handleCheck(todo.id)} >
-                            <i className={`text-success fa-solid ${todo.completed === true ? "fa-xmark" : "fa-check"}`}></i>
-                        </button>
+                        <div className='d-flex btns justify-content-end align-items-center gap-3' style={{ width: "20%" }}>
+                            {/* check button */}
+                            <button className='pt-1 w-50 border-0' onClick={() => handleCheck(todo.id)} >
+                                <i className={`text-success fa-solid ${todo.completed === true ? "fa-xmark" : "fa-check"}`}></i>
+                            </button>
 
-                        {/* delete button */}
-                        <button onClick={() => handleDelete(todo.id)} >
-                            <i className="fa-solid fa-trash pt-1" style={{ color: "#FF0000" }} ></i>
-                        </button>
-
+                            {/* delete button */}
+                            <button className='w-50 border-0' onClick={() => handleDelete(todo.id)} >
+                                <i className="fa-solid fa-trash pt-1" style={{ color: "#FF0000" }} ></i>
+                            </button>
+                        </div>
                     </div>
                 })
             }
