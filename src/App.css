@@ -10,15 +10,12 @@ body {
 
 button {
   outline: none;
-  border: 0;
   border-radius: 0 7px 7px 0;
   background: transparent;
-  height: 100%;
 }
 
 input {
   width: 87%;
-  height: 100%;
 }
 
 input:focus {
@@ -30,36 +27,22 @@ input::placeholder {
 }
 
 #inputd {
-  width: 100%;
   height: 55px;
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #form {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
   border-radius: 5px;
 }
 
 #input {
   border: 2px solid rgba(0, 0, 0, 0.1);
-  border-right: 0;
   border-radius: 7px 0 0 7px;
   outline: 0;
 }
 
 #submit {
   width: 13%;
-  height: 100%;
   margin-left: -1px;
-  margin-top: 0;
   font-size: 15px;
   background: #141414;
 }
@@ -95,6 +78,26 @@ i {
 
   i {
     font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  input::placeholder {
+    font-size: 15px;
+  }
+
+  .btns{
+    flex-direction: column;
+    align-items: end !important;
+    gap: 15px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  i {
+    font-size: 15px;
   }
 }
 
